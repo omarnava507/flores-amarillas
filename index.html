@@ -268,7 +268,7 @@
             type: "image",
             src: "foto3.jpeg",
             title: "Eres preciosa ✨",
-            text: "La mujer más divian y hermosa de todo el universo."
+            text: "La mujer más divina y hermosa de todo el universo."
           },
           "Me encantas 😍": {
             type: "image",
@@ -352,19 +352,18 @@
             window.addEventListener('touchend', onPointerTouch, { passive: false });
             setupInteractions();
 
-            // Escuchadores para iniciar el audio al realizar el primer toque/clic
+            // Iniciar audio en el primer clic o toque táctil
             window.addEventListener('click', playAudioOnFirstTouch, { once: true });
             window.addEventListener('touchstart', playAudioOnFirstTouch, { once: true });
         }
 
-        // Reproduce el audio al primer toque/clic si la música no está sonando
         function playAudioOnFirstTouch() {
             if (bgMusic && bgMusic.paused) {
                 bgMusic.play().then(() => {
                     audioBtn.classList.add('playing');
                     audioIcon.className = 'fas fa-pause text-lg';
                 }).catch(err => {
-                    console.log("Audio deshabilitado hasta interacción directa:", err);
+                    console.log("Audio esperando interacción directa:", err);
                 });
             }
         }
@@ -761,7 +760,6 @@
             if (video) video.pause();
         }
 
-        /* --- CONTROL DE REPRODUCCIÓN DEL ARCHIVO MP3 --- */
         function toggleAudio() {
             if (bgMusic.paused) {
                 bgMusic.play().then(() => {
